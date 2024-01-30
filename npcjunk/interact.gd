@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and Global.nearnpc:
 		if Global.nearestnpc == 1:
-			$TextureRect.texture = load("res://icon.svg")
+			$TextureRect.texture = load("res://assets/Rowan/rowanportrait.png")
 		else: 
 			$TextureRect.texture = load("res://Screen Shot 2024-01-24 at 9.21.21 AM.png")
 	Option1.text = Global.option1

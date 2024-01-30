@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhha1q4jfbr5e"]
+
+[ext_resource type="Script" path="res://combat/combatlogic.gd" id="1_i8cr0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_i8cr0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")

@@ -1,6 +1,6 @@
 extends Node
 var GD = {
-	"Start":"Hi! I'm GD!",
+	"Start":"Hi! I'm Rowan!",
 	 "Choice1":{
 		"Choice1-GD":{
 			"Choice1-1GD":"Thats Rude, but how do you do?",
@@ -35,15 +35,17 @@ func _process(delta):
 			Global.option3 = GD["Choice1"]["Choice1-PLOP"]["Choice1-PLOP3"]
 			Global.option4 = GD["Choice1"]["Choice1-PLOP"]["Choice1-PLOP4"]
 		if Global.option == 1:
-			Global.speak = "thats rude"
+			Global.speak = GD["Choice1"]["Choice1-GD"]["Choice1-1GD"]
 			Global.phase+1
 		if Global.option == 2:
-			Global.speak = "what are you doing around these parts?"
+			Global.speak = GD["Choice1"]["Choice1-GD"]["Choice1-2GD"]
 			Global.phase+1
 		if Global.option == 3:
-			Global.speak = "uhhh what?"
+			Global.speak = GD["Choice1"]["Choice1-GD"]["Choice1-3GD"]
 			Global.phase+1
 		if Global.option == 4:
-			Global.speak = "Well bye then..."
+			Global.speak = GD["Choice1"]["Choice1-GD"]["Choice1-4GD"]
 			Global.phase+1
+	if Global.phase == 2:
+		pass
 	

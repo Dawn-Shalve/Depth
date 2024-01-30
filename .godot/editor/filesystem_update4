@@ -5,3 +5,11 @@ res://3dplatformer/player.tscn
 res://global.gd
 res://topdown2d/worldtopdown2d.tscn
 res://npcjunk/font.tres
+res://combat/combatlogic.gd
+res://combat/combat.tscn
+res://playerdata.gd
+res://combat/monsterdictionary.gd
+res://npcjunk/interact.gd
+res://npcjunk/interact.tscn
+res://topdown2d/playertopdown2d.tscn
+res://topdown2d/2dtopdownmovement.gd

@@ -1,7 +1,10 @@
+RichTextLabel
+CanvasLayer
+CanvasGroup
+AnimationPlayer
 Timer
 Sprite2D
 ColorRect
-RichTextLabel
 LineEdit
 StaticBody2D
 Button
@@ -9,6 +12,3 @@ VBoxContainer
 TextureRect
 Control
 Area2D
-CollisionShape2D
-TextEdit
-RigidBody2D
