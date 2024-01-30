@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://de4f2aokf3n1d"]
+
+[ext_resource type="Script" path="res://devitems/menuswap.gd" id="1_hoxi6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hoxi6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="3dplatformer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "3d Platformer"
+
+[node name="Topdown2d" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Top-Down 2d"
+
+[node name="2d Platformer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "2d Platform"
+
+[connection signal="pressed" from="VBoxContainer/3dplatformer" to="." method="_on_dplatformer_pressed"]
+[connection signal="pressed" from="VBoxContainer/Topdown2d" to="." method="_on_topdown_2d_pressed"]
+[connection signal="pressed" from="VBoxContainer/2d Platformer" to="." method="_on_d_platformer_pressed"]

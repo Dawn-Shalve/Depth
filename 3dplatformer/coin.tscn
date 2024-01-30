@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://3eff7insoslv"]
+
+[ext_resource type="Script" path="res://3dplatformer/coin.gd" id="1_nhdnx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cryby"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_egsb1"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+script = ExtResource("1_nhdnx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.78852, 0, 0, 0, 1.85007, 0, 0, 0, 1.7206, 0, 0, 0)
+shape = SubResource("SphereShape3D_cryby")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_egsb1")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(2.55306, 0, 0, 0, 2.51927, 0, 0, 0, 2.67651, 0, 0, 0)
+shape = SubResource("SphereShape3D_cryby")
+
+[connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]

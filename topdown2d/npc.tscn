@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://tp0qq3syipl"]
+
+[ext_resource type="Script" path="res://topdown2d/npc.gd" id="1_bor0r"]
+[ext_resource type="Texture2D" uid="uid://dlr65iw1mj3pu" path="res://icon.svg" id="1_e12lw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x50fl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dagpv"]
+radius = 29.2746
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_bor0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x50fl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.75, -0.25)
+scale = Vector2(0.160156, 0.160156)
+texture = ExtResource("1_e12lw")
+
+[node name="ui" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="ui"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 15.0
+offset_bottom = 28.0
+scale = Vector2(0.3, 0.173)
+text = "E"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dagpv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

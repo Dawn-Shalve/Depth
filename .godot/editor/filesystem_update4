@@ -1,0 +1,5 @@
+res://devitems/menuswap.tscn
+res://horror/horrormain.tscn
+res://npcjunk/ConvoLogic.gd
+res://3dplatformer/player.tscn
+res://global.gd

@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://4jfvrp250vkg"]
+
+[sub_resource type="SystemFont" id="SystemFont_42duk"]
+font_stretch = 125
+hinting = 2
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_s0876"]
+
+[resource]
+default_font = SubResource("SystemFont_s0876")
+Button/constants/h_separation = 2
+Button/font_sizes/font_size = 128
+Button/fonts/font = SubResource("SystemFont_42duk")

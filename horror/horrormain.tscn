@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyt3macelpmte"]
+
+[ext_resource type="Script" path="res://horror/horrorlogic.gd" id="1_pfdj4"]
+[ext_resource type="Texture2D" uid="uid://hxun4ubyt4cc" path="res://Screen Shot 2024-01-24 at 9.21.21 AM.png" id="2_hf3lq"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pfdj4")
+
+[node name="monster1" type="Timer" parent="."]
+
+[node name="monster2" type="Timer" parent="."]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(575, 323)
+scale = Vector2(2.74163, 1.47273)
+texture = ExtResource("2_hf3lq")
+
+[node name="daytimer" type="Timer" parent="."]

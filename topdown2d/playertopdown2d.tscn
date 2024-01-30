@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cd4exiucsnb1c"]
+
+[ext_resource type="Script" path="res://topdown2d/2dtopdownmovement.gd" id="1_23pef"]
+[ext_resource type="Texture2D" uid="uid://dlr65iw1mj3pu" path="res://icon.svg" id="2_vbohx"]
+[ext_resource type="PackedScene" uid="uid://dh437qr4p40gu" path="res://npcjunk/interact.tscn" id="3_iaalo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gy7i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gymh2"]
+radius = 14.0357
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_23pef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4gy7i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.75, -0.25)
+scale = Vector2(0.160156, 0.160156)
+texture = ExtResource("2_vbohx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="interact" parent="Camera2D" instance=ExtResource("3_iaalo")]
+visible = false
+offset_left = 48.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 42.0
+scale = Vector2(0.47595, 0.442033)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_gymh2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

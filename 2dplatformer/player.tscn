@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx773wl0j0uuf"]
+
+[ext_resource type="Script" path="res://2dplatformer/movement.gd" id="1_0s40y"]
+[ext_resource type="Texture2D" uid="uid://dlr65iw1mj3pu" path="res://icon.svg" id="2_ca54l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evjr0"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_0s40y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_evjr0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.75, -0.25)
+scale = Vector2(0.160156, 0.160156)
+texture = ExtResource("2_ca54l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
