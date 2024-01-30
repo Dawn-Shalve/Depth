@@ -3,3 +3,5 @@ res://horror/horrormain.tscn
 res://npcjunk/ConvoLogic.gd
 res://3dplatformer/player.tscn
 res://global.gd
+res://topdown2d/worldtopdown2d.tscn
+res://npcjunk/font.tres
