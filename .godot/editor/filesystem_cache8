@@ -1,44 +1,66 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706587533
-global.gd::GDScript::-1::1706586427::0::1::::<>Node<>::
+::res://::1706675446
+global.gd::GDScript::-1::1706675446::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::7968370008879824842::1705596208::1705596212::1::::<><>::
-playerdata.gd::GDScript::-1::1706586199::0::1::::<>Node<>::
+playerdata.gd::GDScript::-1::1706586200::0::1::::<>Node<>::
 Screen Shot 2024-01-24 at 9.21.21 AM.png::CompressedTexture2D::540041703137224818::1706116890::1706116926::1::::<><>::
 ::res://2dplatformer/::1706582981
 movement.gd::GDScript::-1::1706059116::0::1::::<>CharacterBody2D<>::
 player.tscn::PackedScene::4068818295151093429::1706059176::0::1::::<><>::res://2dplatformer/movement.gd<>uid://dlr65iw1mj3pu::::res://icon.svg
 world-1-1.tscn::PackedScene::8062502230117876647::1706059176::0::1::::<><>::uid://dlr65iw1mj3pu::::res://icon.svg<>uid://bx773wl0j0uuf::::res://2dplatformer/player.tscn
-::res://3dplatformer/::1706587427
+::res://3dplatformer/::1706592218
 Camfollow.gd::GDScript::-1::1705944092::0::1::::<>Node3D<>::
 coin.gd::GDScript::-1::1705984016::0::1::::<>StaticBody3D<>::
 coin.tscn::PackedScene::1973859340535428611::1706056066::0::1::::<><>::res://3dplatformer/coin.gd
 movement.gd::GDScript::-1::1705983658::0::1::::<>CharacterBody3D<>::
 player.gd::GDScript::-1::1705942506::0::1::::<>CharacterBody3D<>::
-player.tscn::PackedScene::7654933274136796540::1706587427::0::1::::<><>::res://3dplatformer/movement.gd<>res://3dplatformer/Camfollow.gd
+player.tscn::PackedScene::7654933274136796540::1706592220::0::1::::<><>::res://3dplatformer/movement.gd<>res://3dplatformer/Camfollow.gd
 world.tscn::PackedScene::8407834976308836868::1706056080::0::1::::<><>::uid://dhcdvrkx7b2iy::::res://3dplatformer/player.tscn
-::res://assets/::1706587537
-::res://assets/Rowan/::1706587598
-rowanportrait.png::CompressedTexture2D::8477526915178749713::1706587598::1706587620::1::::<><>::
-::res://combat/::1706587454
-combatlogic.gd::GDScript::-1::1706587454::0::1::::<>Node2D<>::
-combat.tscn::PackedScene::2892240549667864316::1706587454::0::1::::<><>::res://combat/combatlogic.gd
-monsterdictionary.gd::GDScript::-1::1706587355::0::1::::<>Node<>::
-::res://devitems/::1706587426
+::res://assets/::1706676054
+::res://assets/Elijah Carter/::1706665710
+portrait.png::CompressedTexture2D::6315908087437219068::1706665698::1706665710::1::::<><>::
+::res://assets/environment/::1706674876
+::res://assets/environment/housing items/::1706674938
+bookshelf.png::CompressedTexture2D::5721939303979560866::1706674914::1706674938::1::::<><>::
+::res://assets/environment/nature/::1706674938
+pinetree.png::CompressedTexture2D::8506851489367928394::1706674920::1706674938::1::::<><>::
+::res://assets/Rhys Carter/::1706660807
+portrait.png::CompressedTexture2D::7091916803706904044::1706660770::1706660807::1::::<><>::
+::res://assets/Rowan/::1706587620
+rowanportrait.png::CompressedTexture2D::8477526915178749713::1706587600::1706587622::1::::<><>::
+::res://assets/ui/::1706676849
+elijahtalk.png::CompressedTexture2D::8170934878243223976::1706676818::1706676851::1::::<><>::
+openbook.png::CompressedTexture2D::7209061064295470614::1706675906::1706676758::1::::<><>::
+rhystalk.png::CompressedTexture2D::3719072973209598376::1706676837::1706676851::1::::<><>::
+rowantalk.png::CompressedTexture2D::3927026215983698837::1706676809::1706676851::1::::<><>::
+::res://combat/::1706592218
+combat.tscn::PackedScene::2892240549667864316::1706592220::0::1::::<><>::res://combat/combatlogic.gd
+combatlogic.gd::GDScript::-1::1706587644::0::1::::<>Node2D<>::
+monsterdictionary.gd::GDScript::-1::1706587356::0::1::::<>Node<>::
+::res://devitems/::1706592218
 menuswap.gd::GDScript::-1::1706058838::0::1::::<>Control<>::
-menuswap.tscn::PackedScene::7500236203987844891::1706587426::0::1::::<><>::res://devitems/menuswap.gd
-::res://horror/::1706587427
+menuswap.tscn::PackedScene::7500236203987844891::1706592220::0::1::::<><>::res://devitems/menuswap.gd
+::res://horror/::1706592218
 horrorlogic.gd::GDScript::-1::1706572958::0::1::::<>Node2D<>::
-horrormain.tscn::PackedScene::8884738984330190178::1706587427::0::1::::<><>::res://horror/horrorlogic.gd<>uid://hxun4ubyt4cc::::res://Screen Shot 2024-01-24 at 9.21.21 AM.png
-::res://npcjunk/::1706584709
-ConvoLogic.gd::GDScript::-1::1706584709::0::1::::<>Node<>::
-font.tres::Theme::2054397869262184694::1706583753::0::1::::<><>::
-interact.gd::GDScript::-1::1706316918::0::1::::<>Control<>::
-interact.tscn::PackedScene::7712209000589799676::1706329396::0::1::::<><>::uid://dlr65iw1mj3pu::::res://icon.svg<>res://npcjunk/interact.gd<>res://npcjunk/RichTextLabel.gd<>uid://4jfvrp250vkg::::res://npcjunk/font.tres
-RichTextLabel.gd::GDScript::-1::1706321026::0::1::::<>RichTextLabel<>::
-::res://topdown2d/::1706587427
-2dtopdownmovement.gd::GDScript::-1::1706232472::0::1::::<>CharacterBody2D<>::
+horrormain.tscn::PackedScene::8884738984330190178::1706592220::0::1::::<><>::res://horror/horrorlogic.gd<>uid://hxun4ubyt4cc::::res://Screen Shot 2024-01-24 at 9.21.21 AM.png
+::res://npcjunk/::1706675447
+ConvoLogic.gd::GDScript::-1::1706671325::0::1::::<>Node<>::
+font.tres::Theme::2054397869262184694::1706657426::0::1::::<><>::
+interact.gd::GDScript::-1::1706587644::0::1::::<>Control<>::
+interact.tscn::PackedScene::7712209000589799676::1706675447::0::1::::<><>::res://npcjunk/interact.gd<>uid://ds1tvn7fhxnen::::res://assets/Rowan/rowanportrait.png<>res://npcjunk/RichTextLabel.gd<>uid://4jfvrp250vkg::::res://npcjunk/font.tres
+cutsceneconvo.gd::GDScript::-1::1706665726::0::1::::<>RichTextLabel<>::
+npctell.gd::GDScript::-1::1706669115::0::1::::<>TextureRect<>::
+RichTextLabel.gd::GDScript::-1::1706664532::0::1::::<>RichTextLabel<>::
+::res://topdown2d/::1706675448
+2dtopdownmovement.gd::GDScript::-1::1706664498::0::1::::<>CharacterBody2D<>::
+cabin.tscn::PackedScene::6421930115197561473::1706675447::0::1::::<><>::uid://cd4exiucsnb1c::::res://topdown2d/playertopdown2d.tscn<>res://topdown2d/cabinevents.gd<>uid://tp0qq3syipl::::res://topdown2d/npc.tscn<>uid://c8bm3lwn12upg::::res://assets/Rhys Carter/portrait.png<>uid://4jfvrp250vkg::::res://npcjunk/font.tres<>res://npcjunk/npctell.gd<>res://topdown2d/cabinconvologic.gd<>uid://cnr0rfbacd13k::::res://assets/environment/housing items/bookshelf.png<>res://topdown2d/bookshelf.gd
 npc.gd::GDScript::-1::1706316392::0::1::::<>StaticBody2D<>::
-npc.tscn::PackedScene::40179443453927049::1706329394::0::1::::<><>::res://topdown2d/npc.gd<>uid://dlr65iw1mj3pu::::res://icon.svg
+npc.tscn::PackedScene::40179443453927049::1706675448::0::1::::<><>::res://topdown2d/npc.gd<>uid://dlr65iw1mj3pu::::res://icon.svg
 playertopdown2d.gd::GDScript::-1::1706115130::0::1::::<>CharacterBody2D<>::
-playertopdown2d.tscn::PackedScene::5043559245597238594::1706329394::0::1::::<><>::res://topdown2d/2dtopdownmovement.gd<>uid://dlr65iw1mj3pu::::res://icon.svg<>uid://dh437qr4p40gu::::res://npcjunk/interact.tscn
-worldtopdown2d.tscn::PackedScene::1904033639193504014::1706587427::0::1::::<><>::uid://cd4exiucsnb1c::::res://topdown2d/playertopdown2d.tscn<>uid://dlr65iw1mj3pu::::res://icon.svg<>uid://tp0qq3syipl::::res://topdown2d/npc.tscn
+playertopdown2d.tscn::PackedScene::5043559245597238594::1706675447::0::1::::<><>::res://topdown2d/2dtopdownmovement.gd<>uid://dlr65iw1mj3pu::::res://icon.svg<>uid://dh437qr4p40gu::::res://npcjunk/interact.tscn
+cabinevents.gd::GDScript::-1::1706672474::0::1::::<>Node2D<>::
+cabinconvologic.gd::GDScript::-1::1706670120::0::1::::<>RichTextLabel<>::
+bookshelf.gd::GDScript::-1::1706675361::0::1::::<>StaticBody2D<>::
+Road.tscn::PackedScene::7007728459443691566::1706675447::0::1::::<><>::uid://cd4exiucsnb1c::::res://topdown2d/playertopdown2d.tscn<>res://topdown2d/roadevents.gd<>uid://tp0qq3syipl::::res://topdown2d/npc.tscn<>uid://c8bm3lwn12upg::::res://assets/Rhys Carter/portrait.png<>res://npcjunk/cutsceneconvo.gd<>uid://4jfvrp250vkg::::res://npcjunk/font.tres
+roadevents.gd::GDScript::-1::1706667086::0::1::::<>Node2D<>::
+worldtopdown2d.tscn::PackedScene::1904033639193504014::1706675447::0::1::::<><>::uid://cd4exiucsnb1c::::res://topdown2d/playertopdown2d.tscn<>uid://dlr65iw1mj3pu::::res://icon.svg<>uid://tp0qq3syipl::::res://topdown2d/npc.tscn

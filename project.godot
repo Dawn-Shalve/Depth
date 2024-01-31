@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://global.gd"
 ConvoLogic="*res://npcjunk/ConvoLogic.gd"
+Monsterdictionary="*res://combat/monsterdictionary.gd"
 
 [input]
 

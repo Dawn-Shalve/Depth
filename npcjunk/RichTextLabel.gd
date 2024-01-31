@@ -14,31 +14,41 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and Global.currentlyinteracting == false and Global.nearnpc:
 		self.clear()
+		Global.convo = 0
 		uiopen = false
 	elif Input.is_action_just_pressed("interact") and Global.currentlyinteracting == true and Global.nearnpc:
 		uiopen = true
+		Global.convo = 1
 		_dialogue ( Global.speak )
 	if justclicked:
 		self.clear()
 		justclicked = false
 		_dialogue( Global.speak )
-
+	if Global.cutsceneactive:
+		if Global.cutscenedialog == 1:
+			_dialoguecutscene( Global.speak )
+			Global.cutscenedialog = 0
 func _dialogue( string ):
 	if not isrunning:
 		isrunning = true
+		cantalk = false
 		for letter in string:
 			if uiopen and justclicked == false and cantalk:
 				timer.start()
 				self.add_text( letter )
 				await timer.timeout
 			else:
-				return
-				cantalk = false
+				break
+				cantalk = true
 				
 		isrunning = false
 		cantalk = true
 		
-
+func _dialoguecutscene( string ):
+	for letter in string:
+		timer.start()
+		self.add_text( letter )
+		await timer.timeout
 
 func _on_option_1_pressed():
 	justclicked = true

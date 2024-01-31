@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+@onready var cam = $Camera2D2
 var currentlyinteracting = false
 var movement = true
 const SPEED = 150.0
@@ -19,12 +21,12 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
-	if direction and movement:
+	if direction and Global.movement:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	var directiony = Input.get_axis("up","down")
-	if directiony and movement:
+	if directiony and Global.movement:
 		velocity.y = directiony * SPEED
 	else:
 		velocity.y = move_toward(velocity.y,0,SPEED)
@@ -33,15 +35,19 @@ func _physics_process(delta):
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and Global.currentlyinteracting == false and Global.nearnpc:
 		interaction.visible = true
-		movement = false
+		Global.movement = false
 		Global.currentlyinteracting = true
 		justinteracted = true
 	elif Input.is_action_just_pressed("interact") and Global.currentlyinteracting == true and Global.nearnpc:
 		interaction.visible = false
-		movement = true
+		Global.movement = true
 		Global.currentlyinteracting = false
 	if Input.is_action_just_pressed("pause"):
 		pass
+	if Global.cutsceneactive:
+		cam.enabled = false
+	else:
+		cam.enabled = true
 
 
 func _on_timer_timeout():

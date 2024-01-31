@@ -1,0 +1,404 @@
+[gd_scene load_steps=19 format=3 uid="uid://cxq3ir4e8vj0t"]
+
+[ext_resource type="PackedScene" uid="uid://cd4exiucsnb1c" path="res://topdown2d/playertopdown2d.tscn" id="1_oswbv"]
+[ext_resource type="Script" path="res://topdown2d/cabinevents.gd" id="1_pdpd3"]
+[ext_resource type="PackedScene" uid="uid://tp0qq3syipl" path="res://topdown2d/npc.tscn" id="2_a8rfm"]
+[ext_resource type="Texture2D" uid="uid://c8bm3lwn12upg" path="res://assets/Rhys Carter/portrait.png" id="3_surat"]
+[ext_resource type="Theme" uid="uid://4jfvrp250vkg" path="res://npcjunk/font.tres" id="4_152s0"]
+[ext_resource type="Script" path="res://npcjunk/npctell.gd" id="5_ptfpy"]
+[ext_resource type="Script" path="res://topdown2d/cabinconvologic.gd" id="7_sg3q6"]
+[ext_resource type="Texture2D" uid="uid://cnr0rfbacd13k" path="res://assets/environment/housing items/bookshelf.png" id="8_e0tsf"]
+[ext_resource type="Script" path="res://topdown2d/bookshelf.gd" id="8_fome6"]
+[ext_resource type="Texture2D" uid="uid://bs8suaku7nslc" path="res://assets/ui/rhystalk.png" id="8_xpyr3"]
+
+[sub_resource type="Animation" id="Animation_fcq6u"]
+resource_name = "cabin_1"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 391), Vector2(240, 212)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 350), Vector2(148, 211)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(218, 380), Vector2(217, 287), Vector2(206, 214)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_vcfda"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 391)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 350)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(218, 380)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2smtv"]
+resource_name = "cabin_2"
+length = 4.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(148, 211), Vector2(521, 105)]
+}
+
+[sub_resource type="Animation" id="Animation_ig5g8"]
+resource_name = "cabin_1_2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 391), Vector2(240, 212)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 350), Vector2(148, 211)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(218, 380), Vector2(217, 287), Vector2(206, 214)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("Control:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_te8ak"]
+_data = {
+"RESET": SubResource("Animation_vcfda"),
+"cabin_1": SubResource("Animation_fcq6u"),
+"cabin_1_2": SubResource("Animation_ig5g8"),
+"cabin_2": SubResource("Animation_2smtv")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i6p4e"]
+normal = Vector2(0.999856, -0.0169467)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4wsf"]
+size = Vector2(30, 26)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmhmg"]
+radius = 28.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pdpd3")
+metadata/_edit_horizontal_guides_ = [31.0]
+
+[node name="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("1_oswbv")]
+position = Vector2(200, 391)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_te8ak")
+}
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_a8rfm")]
+position = Vector2(200, 350)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-350, 4)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_i6p4e")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(833, 33)
+rotation = 3.14159
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_i6p4e")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(244, 275)
+rotation = -1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_i6p4e")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(258, -412)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("WorldBoundaryShape2D_i6p4e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(218, 380)
+enabled = false
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 176.0
+offset_right = 140.0
+offset_bottom = 216.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 3372.0
+offset_bottom = 3284.0
+scale = Vector2(0.0225174, 0.0219153)
+texture = ExtResource("3_surat")
+stretch_mode = 4
+script = ExtResource("5_ptfpy")
+
+[node name="Timer" type="Timer" parent="Control"]
+wait_time = 0.05
+
+[node name="ColorRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 52.0
+offset_bottom = 104.0
+scale = Vector2(1.89364, 1.07267)
+texture = ExtResource("8_xpyr3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 63.3699
+offset_top = 4.66129
+offset_right = 492.37
+offset_bottom = 775.661
+scale = Vector2(0.0267831, 0.044504)
+
+[node name="Button" type="Button" parent="Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_152s0")
+text = "BLANK"
+
+[node name="Button2" type="Button" parent="Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_152s0")
+text = "BLANK"
+
+[node name="Button3" type="Button" parent="Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_152s0")
+text = "BLANK"
+
+[node name="Button4" type="Button" parent="Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_152s0")
+text = "BLANK"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -5.0
+offset_top = 67.0
+offset_right = 300.0
+offset_bottom = 130.0
+scale = Vector2(0.328875, 0.491242)
+theme = ExtResource("4_152s0")
+fit_content = true
+script = ExtResource("7_sg3q6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(470, 61)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_fome6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_y4wsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6"]
+texture = ExtResource("8_e0tsf")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D6"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D6/Area2D"]
+shape = SubResource("CircleShape2D_gmhmg")
+
+[node name="ui" type="Control" parent="StaticBody2D6"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -0.666687
+offset_top = 3.33333
+offset_right = 39.3333
+offset_bottom = 43.3333
+
+[node name="Button" type="Button" parent="StaticBody2D6/ui"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 15.0
+offset_bottom = 28.0
+scale = Vector2(0.3, 0.173)
+text = "E"
+
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/Button" to="Control/RichTextLabel" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/Button2" to="Control/RichTextLabel" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/Button3" to="Control/RichTextLabel" method="_on_button_3_pressed"]
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/Button4" to="Control/RichTextLabel" method="_on_button_4_pressed"]
+[connection signal="body_entered" from="StaticBody2D6/Area2D" to="StaticBody2D6" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="StaticBody2D6/Area2D" to="StaticBody2D6" method="_on_area_2d_body_exited"]

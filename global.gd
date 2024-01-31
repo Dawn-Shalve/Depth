@@ -1,9 +1,19 @@
 extends Node
 var nearestnpc = 0
 var nearnpc = false
+var movement = true
+var nextline = false
+var cabinanim = false
+var bookinspect = false
 var firstint = false
+var cutsceneactive = false
+var cutscene = 0
+var cutscenedialog = 0
+var computingoption = false
 var currentlyinteracting = false
-var phase = 0
+var phase = 1
+var npc = 0
+var canpress = false
 var convo = 0
 var location = 0
 var monster = 0
@@ -29,7 +39,6 @@ func _ready():
 	nearestnpc = false
 	nearnpc = false
 	currentlyinteracting = false
-	phase = 0
 	convo = 0
 	option = 0
 	
