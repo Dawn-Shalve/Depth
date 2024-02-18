@@ -14,19 +14,16 @@ func handlecollision():
 func _process(delta):
 	if uienable: 
 		ui.visible = true
-		Global.nearestnpc = 1
+		Global.nearestnpc = 4
 	else:
 		ui.visible = false
 		Global.nearestnpc = 0
-	if Input.is_action_just_pressed("interact") and Global.currentlyinteracting == false and Global.nearnpc:
-		sprite.visible = true
+	if Input.is_action_just_pressed("interact") and Global.currentlyinteracting == false and Global.nearnpc and Global.canint:
 		Global.currentlyinteracting = true
-		Global.convo = 0
-	elif Input.is_action_just_pressed("interact") and Global.currentlyinteracting == true and Global.nearnpc:
-		sprite.visible = false
+		Global.convo = 6
+	elif Input.is_action_just_pressed("interact") and Global.currentlyinteracting == true and Global.nearnpc and Global.canint:
 		Global.currentlyinteracting = false
-		Global.speak == "Hi! Im GD!"
-		Global.convo = 1
+		Global.convo = 0
 
 func _on_rigid_body_2d_body_entered(body):
 	if body.is_in_group(player):

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bm8lqbvvt4u8v"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 335.0
+offset_top = 190.0
+offset_right = 780.0
+offset_bottom = 242.0
+text = "You died haha loser"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(465, 225)

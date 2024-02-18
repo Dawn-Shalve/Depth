@@ -29,7 +29,6 @@ func _dialoguecutscene( string ):
 		timer.start()
 		self.add_text( letter )
 		await timer.timeout
-	Global.phase = Global.phase + 1
 	Global.canpress = true
 	
 

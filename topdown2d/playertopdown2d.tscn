@@ -1,13 +1,95 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd4exiucsnb1c"]
+[gd_scene load_steps=20 format=3 uid="uid://cd4exiucsnb1c"]
 
 [ext_resource type="Script" path="res://topdown2d/2dtopdownmovement.gd" id="1_23pef"]
 [ext_resource type="Texture2D" uid="uid://dlr65iw1mj3pu" path="res://icon.svg" id="2_vbohx"]
-[ext_resource type="PackedScene" uid="uid://dh437qr4p40gu" path="res://npcjunk/interact.tscn" id="3_iaalo"]
+[ext_resource type="PackedScene" uid="uid://djjdol3745yya" path="res://npcjunk/new_interact.tscn" id="3_wxloo"]
+[ext_resource type="PackedScene" uid="uid://c6lpshinhfnjv" path="res://UI/PAUSE.tscn" id="4_v3hna"]
+[ext_resource type="FontFile" uid="uid://mddb1p3dv04g" path="res://assets/ui/font.ttf" id="5_4o0un"]
+[ext_resource type="Script" path="res://logic/topdown2dcharactermenulogic.gd" id="5_pyiht"]
+[ext_resource type="Texture2D" uid="uid://bppmm7kvi4t6d" path="res://assets/items/greenbean.png" id="7_ewbbn"]
+[ext_resource type="Texture2D" uid="uid://dgq4upeqs73x8" path="res://assets/ui/selector.png" id="8_a2c1k"]
+[ext_resource type="Texture2D" uid="uid://c0ac7xs46d470" path="res://assets/environment/housing items/fear.png" id="9_3f3nx"]
+[ext_resource type="Texture2D" uid="uid://hkmxsnj47fts" path="res://assets/environment/housing items/fearfilled.png" id="10_rd2lp"]
+[ext_resource type="Script" path="res://topdown2d/healthbarthingy.gd" id="11_0ndlg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gy7i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gymh2"]
 radius = 14.0357
+
+[sub_resource type="Theme" id="Theme_eaimr"]
+ItemList/colors/font_outline_color = Color(0.380392, 0.380392, 0.380392, 1)
+ItemList/constants/h_separation = 32
+ItemList/constants/outline_size = 3
+ItemList/font_sizes/font_size = 30
+ItemList/fonts/font = ExtResource("5_4o0un")
+
+[sub_resource type="Theme" id="Theme_o58fu"]
+TabBar/fonts/font = ExtResource("5_4o0un")
+
+[sub_resource type="Theme" id="Theme_5hb4b"]
+default_font = ExtResource("5_4o0un")
+RichTextLabel/fonts/normal_font = ExtResource("5_4o0un")
+
+[sub_resource type="Animation" id="Animation_pt5mk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D2/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D2:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_ps6fx"]
+resource_name = "fade-in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D2/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D2:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qm2wb"]
+_data = {
+"RESET": SubResource("Animation_pt5mk"),
+"fade-in": SubResource("Animation_ps6fx")
+}
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_23pef")
@@ -30,13 +112,137 @@ shape = SubResource("CircleShape2D_gymh2")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Camera2D2" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
+zoom = Vector2(8, 8)
 
-[node name="CanvasGroup" parent="." instance=ExtResource("3_iaalo")]
+[node name="Control" parent="Camera2D2" instance=ExtResource("3_wxloo")]
 visible = false
-offset = Vector2(3, 9)
-scale = Vector2(1, 0.888)
-transform = Transform2D(1, 0, 0, 0.888, 3, 9)
+offset_left = -125.0
+offset_top = -80.0
+offset_right = -85.0
+offset_bottom = -40.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Control2" parent="Camera2D2" instance=ExtResource("4_v3hna")]
+visible = false
+offset_left = 0.0
+offset_top = -2.0
+offset_right = 0.0
+offset_bottom = -2.0
+
+[node name="zmenu" type="Control" parent="Camera2D2"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_pyiht")
+
+[node name="ItemList2" type="ItemList" parent="Camera2D2/zmenu"]
+layout_mode = 0
+offset_left = -142.0
+offset_top = -49.0
+offset_right = 789.0
+offset_bottom = 739.0
+scale = Vector2(0.149225, 0.163749)
+theme = SubResource("Theme_eaimr")
+item_count = 13
+max_columns = 3
+same_column_width = true
+fixed_column_width = 250
+icon_scale = 5.0
+item_0/text = "Stick"
+item_0/icon = ExtResource("7_ewbbn")
+item_1/text = "Stick"
+item_1/icon = ExtResource("7_ewbbn")
+item_2/text = "Stick"
+item_2/icon = ExtResource("7_ewbbn")
+item_3/text = "Greenbean"
+item_3/icon = ExtResource("7_ewbbn")
+item_4/text = "Greenbean"
+item_4/icon = ExtResource("7_ewbbn")
+item_5/text = "Greenbean"
+item_5/icon = ExtResource("7_ewbbn")
+item_6/text = "Greenbean"
+item_6/icon = ExtResource("7_ewbbn")
+item_7/text = "Greenbean"
+item_7/icon = ExtResource("7_ewbbn")
+item_8/text = "Greenbean"
+item_8/icon = ExtResource("7_ewbbn")
+item_9/text = "Greenbean"
+item_9/icon = ExtResource("7_ewbbn")
+item_10/text = "Greenbean"
+item_10/icon = ExtResource("7_ewbbn")
+item_11/text = "Greenbean"
+item_11/icon = ExtResource("7_ewbbn")
+item_12/text = "Greenbean"
+item_12/icon = ExtResource("7_ewbbn")
+
+[node name="TabBar" type="TabBar" parent="Camera2D2/zmenu"]
+layout_mode = 2
+offset_left = -11.0
+offset_top = -72.0
+offset_right = -11.0
+offset_bottom = -48.0
+theme = SubResource("Theme_o58fu")
+tab_count = 3
+tab_alignment = 2
+tab_0/title = "Inventory"
+tab_1/title = "Phone"
+tab_2/title = "Books"
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D2/zmenu"]
+layout_mode = 0
+offset_left = -107.0
+offset_top = -46.0
+offset_right = 1941.0
+offset_bottom = 2002.0
+scale = Vector2(0.006, 0.006)
+texture = ExtResource("8_a2c1k")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D2"]
+visible = false
+offset_left = -144.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = 81.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D2"]
+visible = false
+offset_left = -145.0
+offset_top = 90.0
+offset_right = -105.0
+offset_bottom = 130.0
+rotation = -1.5708
+scale = Vector2(2.5, 2.5)
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("9_3f3nx")
+texture_over = ExtResource("9_3f3nx")
+texture_progress = ExtResource("10_rd2lp")
+script = ExtResource("11_0ndlg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D2/TextureProgressBar"]
+layout_mode = 0
+offset_left = 16.8
+offset_top = 4.4
+offset_right = 82.8
+offset_bottom = 21.4
+rotation = 1.5708
+scale = Vector2(0.25, 0.393)
+theme = SubResource("Theme_5hb4b")
+text = "HP"
+
+[node name="Timer" type="Timer" parent="Camera2D2/TextureProgressBar"]
+wait_time = 10.0
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qm2wb")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="item_clicked" from="Camera2D2/zmenu/ItemList2" to="Camera2D2/zmenu/ItemList2" method="_on_item_clicked"]

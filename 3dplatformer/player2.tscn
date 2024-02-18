@@ -1,0 +1,305 @@
+[gd_scene load_steps=23 format=3 uid="uid://cq3xubexqeocp"]
+
+[ext_resource type="Script" path="res://movement3dfirstperson.gd" id="1_n7jpt"]
+[ext_resource type="Texture2D" uid="uid://djmdn0e8bwjnl" path="res://assets/ui/itemslot.png" id="2_7mquh"]
+[ext_resource type="Shader" uid="uid://dipu2sfs62080" path="res://3dplatformer/colorchange.tres" id="3_4nnqe"]
+[ext_resource type="Texture2D" uid="uid://c0ac7xs46d470" path="res://assets/environment/housing items/fear.png" id="4_0isq2"]
+[ext_resource type="Texture2D" uid="uid://hkmxsnj47fts" path="res://assets/environment/housing items/fearfilled.png" id="5_jve57"]
+[ext_resource type="FontFile" uid="uid://mddb1p3dv04g" path="res://assets/ui/font.ttf" id="6_bxnpa"]
+[ext_resource type="Script" path="res://logic/3dcharactermenulogic.gd" id="7_6nhcm"]
+[ext_resource type="Texture2D" uid="uid://bppmm7kvi4t6d" path="res://assets/items/greenbean.png" id="8_gtf30"]
+[ext_resource type="Texture2D" uid="uid://dgq4upeqs73x8" path="res://assets/ui/selector.png" id="9_r8xa2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jaklt"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3xs71"]
+sky_material = SubResource("ProceduralSkyMaterial_jaklt")
+
+[sub_resource type="Environment" id="Environment_m7c86"]
+background_mode = 2
+sky = SubResource("Sky_3xs71")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_648jb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8fgot"]
+
+[sub_resource type="Theme" id="Theme_er44a"]
+HBoxContainer/constants/separation = 2
+
+[sub_resource type="Theme" id="Theme_20puc"]
+HBoxContainer/constants/separation = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pymww"]
+shader = ExtResource("3_4nnqe")
+
+[sub_resource type="Theme" id="Theme_s4pa7"]
+Button/fonts/font = ExtResource("6_bxnpa")
+
+[sub_resource type="Theme" id="Theme_xxhco"]
+ItemList/colors/font_outline_color = Color(0.380392, 0.380392, 0.380392, 1)
+ItemList/constants/h_separation = 32
+ItemList/constants/outline_size = 3
+ItemList/font_sizes/font_size = 30
+ItemList/fonts/font = ExtResource("6_bxnpa")
+
+[sub_resource type="Theme" id="Theme_xehhb"]
+TabBar/fonts/font = ExtResource("6_bxnpa")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lmfay"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c3q2m"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m7c86")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21568, 0)
+script = ExtResource("1_n7jpt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_648jb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_8fgot")
+
+[node name="neck" type="Node3D" parent="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.543269, 0.0653944)
+
+[node name="ui" type="Control" parent="CharacterBody3D/neck/Camera3D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 1151.0
+offset_bottom = 643.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterBody3D/neck/Camera3D/ui"]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 546.0
+offset_right = 499.0
+offset_bottom = 586.0
+scale = Vector2(2.5, 2.5)
+theme = SubResource("Theme_er44a")
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CharacterBody3D/neck/Camera3D/ui"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 505.0
+offset_right = 782.0
+offset_bottom = 545.0
+theme = SubResource("Theme_20puc")
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CharacterBody3D/neck/Camera3D/ui"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 505.0
+offset_right = 782.0
+offset_bottom = 545.0
+theme = SubResource("Theme_20puc")
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_7mquh")
+expand_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CharacterBody3D/neck/Camera3D/ui"]
+material = SubResource("ShaderMaterial_pymww")
+layout_mode = 0
+offset_left = 295.0
+offset_top = 539.0
+offset_right = 335.0
+offset_bottom = 579.0
+rotation = 1.5708
+scale = Vector2(9, 9)
+texture_under = ExtResource("4_0isq2")
+texture_over = ExtResource("5_jve57")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CharacterBody3D/neck/Camera3D/ui"]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 486.0
+offset_right = 333.0
+offset_bottom = 526.0
+rotation = 1.5708
+scale = Vector2(9, 9)
+texture_under = ExtResource("4_0isq2")
+texture_over = ExtResource("5_jve57")
+
+[node name="Button" type="Button" parent="CharacterBody3D/neck/Camera3D/ui"]
+layout_mode = 0
+offset_left = 818.0
+offset_top = 580.0
+offset_right = 835.0
+offset_bottom = 611.0
+theme = SubResource("Theme_s4pa7")
+text = "E"
+
+[node name="zmenu" type="Control" parent="CharacterBody3D/neck/Camera3D/ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1145.0
+offset_top = 234.0
+offset_right = 1185.0
+offset_bottom = 274.0
+scale = Vector2(3, 3)
+script = ExtResource("7_6nhcm")
+
+[node name="ItemList2" type="ItemList" parent="CharacterBody3D/neck/Camera3D/ui/zmenu"]
+layout_mode = 0
+offset_left = -142.0
+offset_top = -49.0
+offset_right = 789.0
+offset_bottom = 739.0
+scale = Vector2(0.149225, 0.163749)
+theme = SubResource("Theme_xxhco")
+item_count = 13
+max_columns = 3
+same_column_width = true
+fixed_column_width = 250
+icon_scale = 5.0
+item_0/text = "Stick"
+item_0/icon = ExtResource("8_gtf30")
+item_1/text = "Stick"
+item_1/icon = ExtResource("8_gtf30")
+item_2/text = "Stick"
+item_2/icon = ExtResource("8_gtf30")
+item_3/text = "Greenbean"
+item_3/icon = ExtResource("8_gtf30")
+item_4/text = "Greenbean"
+item_4/icon = ExtResource("8_gtf30")
+item_5/text = "Greenbean"
+item_5/icon = ExtResource("8_gtf30")
+item_6/text = "Greenbean"
+item_6/icon = ExtResource("8_gtf30")
+item_7/text = "Greenbean"
+item_7/icon = ExtResource("8_gtf30")
+item_8/text = "Greenbean"
+item_8/icon = ExtResource("8_gtf30")
+item_9/text = "Greenbean"
+item_9/icon = ExtResource("8_gtf30")
+item_10/text = "Greenbean"
+item_10/icon = ExtResource("8_gtf30")
+item_11/text = "Greenbean"
+item_11/icon = ExtResource("8_gtf30")
+item_12/text = "Greenbean"
+item_12/icon = ExtResource("8_gtf30")
+
+[node name="TabBar" type="TabBar" parent="CharacterBody3D/neck/Camera3D/ui/zmenu"]
+layout_mode = 2
+offset_left = -11.0
+offset_top = -72.0
+offset_right = -11.0
+offset_bottom = -48.0
+theme = SubResource("Theme_xehhb")
+tab_count = 3
+tab_alignment = 2
+tab_0/title = "Inventory"
+tab_1/title = "Phone"
+tab_2/title = "Books"
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/neck/Camera3D/ui/zmenu"]
+layout_mode = 0
+offset_left = -107.0
+offset_top = -46.0
+offset_right = 1941.0
+offset_bottom = 2002.0
+scale = Vector2(0.006, 0.006)
+texture = ExtResource("9_r8xa2")
+
+[node name="Timer" type="Timer" parent="CharacterBody3D/neck/Camera3D/ui/zmenu"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_lmfay")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_c3q2m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.889648, 0.456648, 0, -0.456648, 0.889648, 0, 3.75564, 4.48211)
+shadow_enabled = true
+
+[connection signal="item_clicked" from="CharacterBody3D/neck/Camera3D/ui/zmenu/ItemList2" to="CharacterBody3D/neck/Camera3D/ui/zmenu/ItemList2" method="_on_item_clicked"]

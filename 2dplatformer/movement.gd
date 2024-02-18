@@ -9,7 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	# Add the gravity.
+	Global.player_global_position = self.global_position
 	if Input.is_action_just_pressed("dash"):
 		var input_dir = Input.get_vector("left", "right", "up", "down")
 		var direction = (Vector2(input_dir.x, input_dir.y)).normalized()
@@ -32,5 +32,11 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	if Input.is_action_just_pressed("ui_down"):
+		velocity.y += gravity * delta * 30
 	move_and_slide()
+
+func _process(delta):
+	await Global.clearbattle
+	self.queue_free()
+

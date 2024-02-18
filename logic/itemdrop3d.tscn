@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://2la5ipgd8m4t"]
+
+[ext_resource type="Script" path="res://inventory/itemonfloor.gd" id="1_tfue8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f84ti"]
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(527, 273)
+script = ExtResource("1_tfue8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f84ti")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="timer" type="Timer" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_f84ti")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

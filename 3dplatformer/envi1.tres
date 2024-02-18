@@ -1,0 +1,23 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://dlcym0oeskxs"]
+
+[ext_resource type="Shader" path="res://topdown2d/skycode.gdshader" id="1_n43c4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rc0ss"]
+shader = ExtResource("1_n43c4")
+shader_parameter/baseColor = Color(0, 0.64, 0.84, 1)
+shader_parameter/horizonColor = Color(1, 1, 1, 1)
+shader_parameter/horizonHeight = -0.2
+shader_parameter/rayleighCoefficient = 0.2
+shader_parameter/mieCoefficient = null
+shader_parameter/mieEccentricity = 0.8
+shader_parameter/sunDiskScale = 0.2
+shader_parameter/sunSmoothing = 0.5
+
+[sub_resource type="Sky" id="Sky_8omv4"]
+sky_material = SubResource("ShaderMaterial_rc0ss")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_8omv4")
+ambient_light_source = 2
+reflected_light_source = 2

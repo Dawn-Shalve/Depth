@@ -1,0 +1,49 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://dipu2sfs62080"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ivupa"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_c6ge1"]
+default_input_values = [0, Vector3(1, 0, 0)]
+expanded_output_ports = [0]
+function = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_tyhlf"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 1, 2, 1)]
+op_type = 2
+operator = 2
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+
+void fragment() {
+// Input:3
+	vec4 n_out3p0 = COLOR;
+
+
+// VectorOp:5
+	vec4 n_in5p1 = vec4(0.00000, 1.00000, 2.00000, 1.00000);
+	vec4 n_out5p0 = n_out3p0 * n_in5p1;
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out5p0.xyz);
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(620, 100)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_ivupa")
+nodes/fragment/3/position = Vector2(-300, 40)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorFunc_c6ge1")
+nodes/fragment/4/position = Vector2(-220, 240)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_tyhlf")
+nodes/fragment/5/position = Vector2(180, 80)
+nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 5, 0, 0, 0)

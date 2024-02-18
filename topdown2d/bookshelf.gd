@@ -14,8 +14,12 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		$ui.visible = true
+		Global.nearestnpc = 3
+		Global.nearnpc = true
 
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		$ui.visible = false
+		Global.nearestnpc = 3
+		Global.nearnpc = true

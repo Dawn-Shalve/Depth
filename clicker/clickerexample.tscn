@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdllspa4isc6e"]
+
+[ext_resource type="Script" path="res://clickerexample.gd" id="1_qha1w"]
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Clicker"
+script = ExtResource("1_qha1w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -131.0
+offset_top = 39.0
+offset_right = 163.0
+offset_bottom = 109.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(11, 38)
+zoom = Vector2(3, 3)
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

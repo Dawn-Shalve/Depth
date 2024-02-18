@@ -2,13 +2,38 @@ extends Node
 var nearestnpc = 0
 var nearnpc = false
 var movement = true
+var buttonpressed = false
+var breaktext = false
+var interactionvisible = false
+var killed = [0]
+var fightingid = null
+var devmode = true
+var checkid = 0
 var nextline = false
+var player_global_position = null
+var currentbutton = 1
+signal clearbattle
+var selection = 0
+var encounter = 0
+var logglobal = null
+var entityids = 1
+var scenelog = null
+var optionarray = []
+var canchoose = false
+signal bigdickrandy
+signal clear
+signal starttalking
+signal computingdone
+var desc = "BLANK"
 var cabinanim = false
+var canint = true
+var def = 5
 var bookinspect = false
 var firstint = false
 var cutsceneactive = false
-var cutscene = 0
+var cutscene = 0 
 var cutscenedialog = 0
+var continuecut = false
 var computingoption = false
 var currentlyinteracting = false
 var phase = 1
@@ -20,6 +45,7 @@ var monster = 0
 var convoinfluence = 0
 var option = 0
 var optionchanged = false
+var health = 100
 var start = false
 var speak = "BLANK"
 var option1 = "BLANK"
@@ -61,4 +87,9 @@ func _process(delta):
 		convo = 0
 	if Input.is_action_just_pressed("pause"):
 		pass
+	if Input.is_action_just_pressed("DEVPRINT"):
+		print("--------------------------------------------------")
+		print(Global.currentbutton)
+		print(ConvoLogic.maxoption)
+		print(Global.movement)
 

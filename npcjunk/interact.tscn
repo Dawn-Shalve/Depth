@@ -1,117 +1,83 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh437qr4p40gu"]
+[gd_scene load_steps=6 format=3 uid="uid://dh437qr4p40gu"]
 
-[ext_resource type="Script" path="res://npcjunk/interact.gd" id="1_esgv7"]
-[ext_resource type="Texture2D" uid="uid://ds1tvn7fhxnen" path="res://assets/Rowan/rowanportrait.png" id="2_k5m4q"]
-[ext_resource type="Script" path="res://npcjunk/RichTextLabel.gd" id="3_3nq4d"]
+[ext_resource type="Texture2D" uid="uid://c8bm3lwn12upg" path="res://assets/Rhys Carter/portrait.png" id="1_rlw8g"]
+[ext_resource type="Script" path="res://npcjunk/npctell.gd" id="2_c2p0m"]
+[ext_resource type="Texture2D" uid="uid://bs8suaku7nslc" path="res://assets/ui/rhystalk.png" id="3_0gbh8"]
 [ext_resource type="Theme" uid="uid://4jfvrp250vkg" path="res://npcjunk/font.tres" id="3_8xndk"]
+[ext_resource type="Script" path="res://topdown2d/cabinconvologic.gd" id="5_qtmqr"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
-follow_viewport_enabled = true
-
-[node name="interact" type="Control" parent="."]
+[node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 158.0
-offset_top = -24.0
-offset_right = 158.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.800001, 0.6)
-script = ExtResource("1_esgv7")
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 176.0
+offset_right = 140.0
+offset_bottom = 216.0
 
-[node name="TextureRect" type="TextureRect" parent="interact"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -347.5
-offset_top = -130.0
-offset_right = 3023.5
-offset_bottom = 3157.0
-scale = Vector2(0.0584315, 0.0617072)
-texture = ExtResource("2_k5m4q")
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 3372.0
+offset_bottom = 3284.0
+scale = Vector2(0.0225174, 0.0219153)
+texture = ExtResource("1_rlw8g")
+stretch_mode = 4
+script = ExtResource("2_c2p0m")
 
-[node name="ColorRect" type="ColorRect" parent="interact"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -375.0
-offset_top = 66.6667
-offset_right = 63.0003
-offset_bottom = 230.667
-scale = Vector2(0.547714, 0.642908)
-color = Color(0, 0, 0, 1)
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 52.0
+offset_bottom = 104.0
+scale = Vector2(1.89364, 1.07267)
+texture = ExtResource("3_0gbh8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="interact"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 0
-offset_left = -153.75
-offset_top = 43.3333
-offset_right = 482.25
-offset_bottom = 811.333
-scale = Vector2(0.136626, 0.168141)
+offset_left = 63.3699
+offset_top = 4.66129
+offset_right = 492.37
+offset_bottom = 775.661
+scale = Vector2(0.0267831, 0.044504)
 
-[node name="Option1" type="Button" parent="interact/VBoxContainer"]
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_8xndk")
-text = "Screw you"
+text = "BLANK"
 
-[node name="ColorRect" type="ColorRect" parent="interact/VBoxContainer"]
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="ColorRect2" type="ColorRect" parent="interact/VBoxContainer"]
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="Option2" type="Button" parent="interact/VBoxContainer"]
+[node name="Button2" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_8xndk")
-text = "Screw you"
+text = "BLANK"
 
-[node name="ColorRect3" type="ColorRect" parent="interact/VBoxContainer"]
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="ColorRect4" type="ColorRect" parent="interact/VBoxContainer"]
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="Option3" type="Button" parent="interact/VBoxContainer"]
+[node name="Button3" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_8xndk")
-text = "Screw you"
+text = "BLANK"
 
-[node name="ColorRect5" type="ColorRect" parent="interact/VBoxContainer"]
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="ColorRect6" type="ColorRect" parent="interact/VBoxContainer"]
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="Option4" type="Button" parent="interact/VBoxContainer"]
+[node name="Button4" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_8xndk")
-text = "Screw you"
-alignment = 0
+text = "BLANK"
 
-[node name="Timer" type="Timer" parent="interact"]
-wait_time = 0.1
-
-[node name="Timer2" type="Timer" parent="interact"]
-wait_time = 0.4
-
-[node name="RichTextLabel" type="RichTextLabel" parent="interact"]
-clip_contents = false
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.197
-anchor_bottom = 0.115
-offset_left = -366.25
-offset_top = 73.3333
-offset_right = -366.25
-offset_bottom = 73.3334
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -5.0
+offset_top = 67.0
+offset_right = 300.0
+offset_bottom = 130.0
+scale = Vector2(0.328875, 0.491242)
+theme = ExtResource("3_8xndk")
 fit_content = true
-scroll_active = false
-text_direction = 1
-script = ExtResource("3_3nq4d")
+script = ExtResource("5_qtmqr")
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="RichTextLabel" method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button2" to="RichTextLabel" method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button3" to="RichTextLabel" method="_on_button_3_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button4" to="RichTextLabel" method="_on_button_4_pressed"]

@@ -1,12 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c63ui8b0ficfm"]
+[gd_scene load_steps=13 format=3 uid="uid://c63ui8b0ficfm"]
 
 [ext_resource type="PackedScene" uid="uid://cd4exiucsnb1c" path="res://topdown2d/playertopdown2d.tscn" id="1_t80rg"]
 [ext_resource type="Script" path="res://topdown2d/roadevents.gd" id="1_xex0j"]
 [ext_resource type="PackedScene" uid="uid://tp0qq3syipl" path="res://topdown2d/npc.tscn" id="3_4u5ye"]
-[ext_resource type="Texture2D" uid="uid://c8bm3lwn12upg" path="res://assets/Rhys Carter/portrait.png" id="4_1vsq3"]
-[ext_resource type="Script" path="res://npcjunk/cutsceneconvo.gd" id="5_gnnfo"]
-[ext_resource type="Theme" uid="uid://4jfvrp250vkg" path="res://npcjunk/font.tres" id="5_i7sk4"]
-[ext_resource type="Texture2D" uid="uid://bs8suaku7nslc" path="res://assets/ui/rhystalk.png" id="5_pjg8e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g36la"]
 normal = Vector2(0.999856, -0.0169467)
@@ -70,43 +66,50 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Control:visible")
+tracks/4/path = NodePath("CharacterBody2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(254, 384)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CharacterBody2D:position")
+tracks/5/path = NodePath("Camera2D/ColorRect:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(254, 384)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Camera2D/ColorRect:color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6c3e6"]
+resource_name = "blank"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_0dx5x"]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.431373), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_vpj7o"]
 resource_name = "horror cutscene"
-length = 2.4
+length = 2.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -138,10 +141,10 @@ tracks/2/path = NodePath("Camera2D:zoom")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 0.8, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.2, 0.8, 1.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3, 3), Vector2(4, 4), Vector2(6, 6)]
+"values": [Vector2(3, 3), Vector2(4, 4), Vector2(6, 6), Vector2(3.5, 3.5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -158,26 +161,14 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Control:visible")
+tracks/4/path = NodePath("CharacterBody2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.3),
+"times": PackedFloat32Array(0, 2.4),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CharacterBody2D:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(2.4),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(152, -306)]
+"values": [Vector2(221, -306), Vector2(150, -350)]
 }
 
 [sub_resource type="Animation" id="Animation_3al4h"]
@@ -234,46 +225,20 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Control:visible")
+tracks/4/path = NodePath("CharacterBody2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CharacterBody2D:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.9, 2.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(152, -306), Vector2(152, -306), Vector2(152, -306), Vector2(149, -448)]
 }
 
-[sub_resource type="Animation" id="Animation_0dx5x"]
-resource_name = "fade out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.431373), Color(0, 0, 0, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yst83"]
 _data = {
 "RESET": SubResource("Animation_iinem"),
+"blank": SubResource("Animation_6c3e6"),
 "fade out": SubResource("Animation_0dx5x"),
 "horror cutscene": SubResource("Animation_vpj7o"),
 "horror cutscene2": SubResource("Animation_3al4h")
@@ -312,9 +277,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 shape = SubResource("WorldBoundaryShape2D_g36la")
 
-[node name="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("1_t80rg")]
-position = Vector2(254, 384)
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -336,6 +298,9 @@ libraries = {
 [node name="StaticBody2D5" parent="." instance=ExtResource("3_4u5ye")]
 position = Vector2(150, -1130)
 
+[node name="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("1_t80rg")]
+position = Vector2(254, 384)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(171, -408)
 enabled = false
@@ -351,84 +316,7 @@ offset_bottom = -97.0
 scale = Vector2(11.0599, 6.56966)
 color = Color(0, 0, 0, 0)
 
-[node name="Control" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 67.0
-offset_top = -401.0
-offset_right = 107.0
-offset_bottom = -361.0
-
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 3372.0
-offset_bottom = 3284.0
-scale = Vector2(0.0225174, 0.0219153)
-texture = ExtResource("4_1vsq3")
-stretch_mode = 4
-
-[node name="ColorRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 64.0
-offset_right = 61.0
-offset_bottom = 104.0
-scale = Vector2(1.65679, 0.923187)
-texture = ExtResource("5_pjg8e")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.62147
-offset_top = 4.33282
-offset_right = 387.0
-offset_bottom = 25.0
-scale = Vector2(0.117338, 0.495345)
-theme = ExtResource("5_i7sk4")
-fit_content = true
-script = ExtResource("5_gnnfo")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect"]
-layout_mode = 0
-offset_left = 63.3757
-offset_top = 3.2496
-offset_right = 492.376
-offset_bottom = 747.25
-scale = Vector2(0.0289236, 0.0436118)
-
-[node name="Button" type="Button" parent="Control/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("5_i7sk4")
-text = "BLANK"
-
-[node name="Button2" type="Button" parent="Control/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("5_i7sk4")
-text = "BLANK"
-
-[node name="Button3" type="Button" parent="Control/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("5_i7sk4")
-text = "BLANK"
-
-[node name="Button4" type="Button" parent="Control/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("5_i7sk4")
-text = "BLANK"
-
-[node name="Timer" type="Timer" parent="Control/ColorRect"]
-wait_time = 0.05
-
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
-[connection signal="pressed" from="Control/ColorRect/VBoxContainer/Button" to="Control/ColorRect/RichTextLabel" method="_on_button_pressed"]
-[connection signal="pressed" from="Control/ColorRect/VBoxContainer/Button2" to="Control/ColorRect/RichTextLabel" method="_on_button_2_pressed"]
-[connection signal="pressed" from="Control/ColorRect/VBoxContainer/Button3" to="Control/ColorRect/RichTextLabel" method="_on_button_3_pressed"]
-[connection signal="pressed" from="Control/ColorRect/VBoxContainer/Button4" to="Control/ColorRect/RichTextLabel" method="_on_button_4_pressed"]

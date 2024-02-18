@@ -1,0 +1,236 @@
+[gd_scene load_steps=22 format=3 uid="uid://badgdgxq6vrle"]
+
+[ext_resource type="Script" path="res://topdown2d/scenelogtest.gd" id="1_6u2a1"]
+[ext_resource type="PackedScene" uid="uid://cd4exiucsnb1c" path="res://topdown2d/playertopdown2d.tscn" id="1_107fy"]
+[ext_resource type="Shader" path="res://topdown2d/testworld.gdshader" id="1_c4ncc"]
+[ext_resource type="Script" path="res://topdown2d/enemylogic/treegoblin.gd" id="2_i4tmq"]
+[ext_resource type="Texture2D" uid="uid://cpm31mm8evoqd" path="res://assets/monsters/treegoblin.png" id="3_3rluh"]
+[ext_resource type="Script" path="res://topdown2d/Button.gd" id="4_b4yf5"]
+[ext_resource type="Shader" uid="uid://bhgypnvcfaqbo" path="res://topdown2d/testing.tres" id="4_i42xm"]
+[ext_resource type="Texture2D" uid="uid://dcjkt68yvkte" path="res://assets/puzzles/puzzlebutton.png" id="5_upp82"]
+[ext_resource type="Script" path="res://topdown2d/Door.gd" id="6_8hm65"]
+[ext_resource type="Texture2D" uid="uid://ddba6fj66cuy2" path="res://assets/puzzles/doorclosed.png" id="7_j6v4g"]
+[ext_resource type="Script" path="res://topdown2d/damagexample.gd" id="9_63567"]
+[ext_resource type="Texture2D" uid="uid://dlr65iw1mj3pu" path="res://icon.svg" id="10_tkuom"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pba7k"]
+shader = ExtResource("1_c4ncc")
+shader_parameter/color = null
+
+[sub_resource type="Animation" id="Animation_j0q75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemies/Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(81, -94)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemies/Area2D/Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Enemies/Area2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-79, -183)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Enemies/Area2D2/Sprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dautq"]
+resource_name = "treegoblinpace"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemies/Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.6, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(81, -94), Vector2(-79, -94), Vector2(81, -94)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemies/Area2D/Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.6, 4.9, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Enemies/Area2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-79, -183), Vector2(81, -183)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Enemies/Area2D2/Sprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p5lih"]
+_data = {
+"RESET": SubResource("Animation_j0q75"),
+"treegoblinpace": SubResource("Animation_dautq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt7ou"]
+size = Vector2(112, 232)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4a40"]
+shader = ExtResource("4_i42xm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pnkq"]
+size = Vector2(12, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbnyo"]
+size = Vector2(28, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amrw1"]
+size = Vector2(11, 12)
+
+[node name="Node2D" type="Node2D"]
+material = SubResource("ShaderMaterial_pba7k")
+use_parent_material = true
+script = ExtResource("1_6u2a1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p5lih")
+}
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Enemies"]
+position = Vector2(81, -94)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("2_i4tmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Area2D"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_vt7ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Area2D"]
+material = SubResource("ShaderMaterial_a4a40")
+texture = ExtResource("3_3rluh")
+
+[node name="Area2D2" type="Area2D" parent="Enemies"]
+position = Vector2(-79, -183)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("2_i4tmq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Area2D2"]
+texture = ExtResource("3_3rluh")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Area2D2"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_vt7ou")
+
+[node name="Puzzles" type="Node" parent="."]
+
+[node name="Button" type="Area2D" parent="Puzzles"]
+position = Vector2(-107, -6)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("4_b4yf5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puzzles/Button"]
+texture = ExtResource("5_upp82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzles/Button"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1pnkq")
+
+[node name="Door" type="StaticBody2D" parent="Puzzles"]
+position = Vector2(-141, -101)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("6_8hm65")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puzzles/Door"]
+texture = ExtResource("7_j6v4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzles/Door"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wbnyo")
+
+[node name="Damage" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Damage"]
+position = Vector2(-152, -32)
+script = ExtResource("9_63567")
+
+[node name="Sprite2D" type="Sprite2D" parent="Damage/Area2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_tkuom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage/Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_amrw1")
+
+[node name="Timer" type="Timer" parent="Damage/Area2D"]
+wait_time = 0.1
+
+[node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("1_107fy")]
+visibility_layer = 3
+z_index = 1
+
+[connection signal="body_entered" from="Enemies/Area2D" to="Enemies/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemies/Area2D2" to="Enemies/Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Puzzles/Button" to="Puzzles/Button" method="_on_body_entered"]
+[connection signal="body_exited" from="Puzzles/Button" to="Puzzles/Button" method="_on_body_exited"]
+[connection signal="area_entered" from="Damage/Area2D" to="Damage/Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Damage/Area2D" to="Damage/Area2D" method="_on_body_entered"]

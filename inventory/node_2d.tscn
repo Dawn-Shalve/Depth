@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bolqc7us214vq"]
+
+[ext_resource type="Script" path="res://ItemList.gd" id="1_f0xu7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_right = 1240.0
+offset_bottom = 747.0
+max_columns = 5
+icon_scale = 5.0
+script = ExtResource("1_f0xu7")
+
+[connection signal="item_clicked" from="ItemList" to="ItemList" method="_on_item_clicked"]

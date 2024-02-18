@@ -9,7 +9,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Global.continuecut:
+		anim.play("blank")
+		Global.continuecut = false
 
 
 func _on_area_2d_body_entered(body):
@@ -22,23 +24,24 @@ func horrorcutscene():
 	if not cutscenehasplayed:
 		Global.movement = false
 		Global.cutsceneactive = true
+		Global.canint = false
 		Global.convo = 2
 		Global.cutscene = 1
 		anim.play("horror cutscene")
+		
 		await anim.animation_finished
-		Global.cutscenedialog == 1
-		await $Control/ColorRect/VBoxContainer/Button.pressed or $Control/ColorRect/VBoxContainer/Button2.pressed or $Control/ColorRect/VBoxContainer/Button3.pressed or $Control/ColorRect/VBoxContainer/Button4.pressed
-		timer.wait_time = 5
-		$Control/ColorRect/VBoxContainer/Button.visible = false
-		$Control/ColorRect/VBoxContainer/Button2.visible = false
-		$Control/ColorRect/VBoxContainer/Button3.visible = false
-		$Control/ColorRect/VBoxContainer/Button4.visible = false
+		Global.interactionvisible = true
+		await Global.bigdickrandy
+		timer.wait_time = 2.5
 		timer.start()
 		await timer.timeout
+		Global.interactionvisible = false
+		Global.cutscenedialog == 1
 		anim.play("horror cutscene2")
 		await anim.animation_finished
 		anim.play("fade out")
 		await anim.animation_finished
+		Global.clear.emit()
 		get_tree().change_scene_to_file("res://topdown2d/cabin.tscn")
 
 func transferto3dplatformer():
